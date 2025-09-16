@@ -14,11 +14,14 @@
 
 //DECLARATIVE PIPELINE
 pipeline {
-	agent any 
+	//agent any 
+	agent { docker { image 'maven:3.9.11'} }
 	stages {
 		stage('Build') {
 			steps {
-                    echo "Build"
+				     sh 'mvn --version'
+					 echo "mvn --version"
+                    //echo "Build"
 			}
 		
 	    }
@@ -46,3 +49,5 @@ pipeline {
 		}
 	}
 }
+
+//changed and unstable keywords can also be used in post
